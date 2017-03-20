@@ -14,6 +14,8 @@ class Oystercard
     self.balance += amount
   end
 
+  private
+
   def exceeds_limit?(amount)
     self.balance + amount > limit
   end
