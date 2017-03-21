@@ -13,9 +13,6 @@ describe Oystercard do
   end
 
   describe "#top_up" do
-    it "Checks card responds to #top_up" do
-      expect(card).to respond_to(:top_up).with(1).argument
-    end
     it "Adds money to the card" do
       card.top_up(top_up_amount)
       expect(card.balance).to eq top_up_amount
@@ -33,11 +30,6 @@ describe Oystercard do
   end
 
   describe '#touch_in' do
-    it 'Changes card to in journey' do
-      card.top_up(top_up_amount)
-      expect(card.touch_in(station)).to eq station
-    end
-
     it "Can't touch in if balance < £1" do
       expect{card.touch_in(station)}.to raise_error "Can't touch in: Balance too low"
     end
@@ -54,7 +46,7 @@ describe Oystercard do
       expect(card.touch_out).to eq nil
     end
 
-    it 'Charges card by minimum amount on touch out' do
+    it 'Charges card by minimum amount at touch out' do
       card.top_up(top_up_amount)
       # card.touch_in
       expect{card.touch_out}.to change{card.balance}.by -Oystercard::MINIMUM_BALANCE
