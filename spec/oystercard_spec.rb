@@ -28,4 +28,11 @@ describe Oystercard do
       expect {card.top_up(100)}.to raise_error message
     end
   end
+
+  describe "#deduct" do
+    it "Card deducts amount" do
+      amount = 20
+      expect{card.deduct(amount)}.to change{card.balance}.by -amount
+    end
+  end
 end
