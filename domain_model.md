@@ -93,10 +93,26 @@ I need my **fare deducted** from my card
 
 
 ## User Story 5
+In order to get through the barriers.
+As a customer
+I need to touch in and out.
+
 ### Nouns:
+In order to get through the **barriers**.
+As a **customer**
+I need to touch in and out.
+
 ### Verbs:
+In order to get through the barriers.
+As a customer
+I need to **touch in and out.**
+
 ### Objects:
+1. User (Customer)
+2. Barriers
+
 ### Messages:
+1. Touch in and out
 
 
 ## User Story 6
