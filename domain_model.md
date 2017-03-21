@@ -116,17 +116,50 @@ I need to **touch in and out.**
 
 
 ## User Story 6
+In order to pay for my journey
+As a customer
+I need to have the minimum amount (£1) for a single journey.
+
 ### Nouns:
+In order to pay for my journey
+As a **customer**
+I need to have the minimum amount (£1) for a **single journey**.
+
 ### Verbs:
+In order to pay for my journey
+As a customer
+I need to have the **minimum amount (£1)** for a single journey.
+
 ### Objects:
+1. User (Customer)
+2. Single journey
+
 ### Messages:
+1. Minimum amount for travel is £1
 
 
 ## User Story 7
+In order to pay for my journey
+As a customer
+When my journey is complete, I need the correct amount deducted from my card
+
 ### Nouns:
+In order to pay for my journey
+As a **customer**
+When my journey is complete, I need the correct amount deducted from my **card**
+
 ### Verbs:
+In order to pay for my journey
+As a customer
+When my **journey is complete**, I need the **correct amount deducted** from my card
+
 ### Objects:
+1. User (Customer)
+2. Card
+
 ### Messages:
+1. Complete journey
+2. Correct amount deducted
 
 ## User Story 8
 ### Nouns:

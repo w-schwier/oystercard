@@ -3,6 +3,7 @@ class Oystercard
   attr_writer :balance
 
   DEFAULT_LIMIT = 90
+  MINIMUM_BALANCE = 1
 
   def initialize(limit = DEFAULT_LIMIT)
     @balance = 0
@@ -24,6 +25,7 @@ class Oystercard
   end
 
   def touch_in
+    fail "Can't touch in: Balance too low" if (@balance < MINIMUM_BALANCE)
     @in_journey = true
   end
 
