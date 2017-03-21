@@ -32,10 +32,12 @@ describe Oystercard do
   end
 
   describe "#deduct" do
+=begin
     it "Card deducts amount" do
       card.top_up(top_up_amount)
       expect{card.deduct(top_up_amount)}.to change{card.balance}.by -top_up_amount
     end
+=end
   end
 
   describe '#in_journey?' do
@@ -59,6 +61,12 @@ describe Oystercard do
   describe '#touch_out' do
     it 'Changes card to not in journey' do
       expect(card.touch_out).to eq card.in_journey?
+    end
+
+    it 'Charges card by minimum amount on touch out' do
+      card.top_up(top_up_amount)
+      # card.touch_in
+      expect{card.touch_out}.to change{card.balance}.by -Oystercard::MINIMUM_BALANCE
     end
   end
 end
