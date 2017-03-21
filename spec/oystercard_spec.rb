@@ -35,4 +35,22 @@ describe Oystercard do
       expect{card.deduct(20)}.to change{card.balance}.by -20
     end
   end
+
+  describe '#in_journey?' do
+    it 'Checks if card is in journey' do
+      expect(card.in_journey?).to eq false
+    end
+  end
+
+  describe '#touch_in' do
+    it 'Changes card to in journey' do
+      expect(card.touch_in).to eq card.in_journey?
+    end
+  end
+
+  describe '#touch_out' do
+    it 'Changes card to not in journey' do
+      expect(card.touch_out).to eq card.in_journey?
+    end
+  end
 end
