@@ -186,10 +186,26 @@ I need to know **where I've travelled from**
 
 
 ## User Story 9
+In order to know where I have been
+As a customer
+I want to see to all my previous trips
+
 ### Nouns:
+In order to know where I have been
+As a **customer**
+I want to see to all my previous trips
+
 ### Verbs:
+In order to know where I have been
+As a customer
+I want to **see to all my previous trips**
+
 ### Objects:
+1. User (Customer)
+2. Card
+
 ### Messages:
+1. See all previous trips
 
 
 ## User Story 10
