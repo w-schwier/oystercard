@@ -209,21 +209,69 @@ I want to **see to all my previous trips**
 
 
 ## User Story 10
+In order to know how far I have travelled
+As a customer
+I want to know what zone a station is in
+
 ### Nouns:
+In order to know how far I have travelled
+As a **customer**
+I want to know what zone a **station** is in
+
 ### Verbs:
+In order to know how far I have travelled
+As a customer
+I want to know **what zone a station is** in
+
 ### Objects:
+1. User (customer)
+2. Station
+
 ### Messages:
+1. What zone is the station
 
 
 ## User Story 11
+In order to be charged correctly
+As a customer
+I need a penalty charge deducted if I fail to touch in or out
+
 ### Nouns:
+In order to be charged correctly
+As a **customer**
+I need a **penalty charge** deducted if I fail to touch in or out
+
 ### Verbs:
+In order to be charged correctly
+As a customer
+I need a penalty charge deducted if I **fail to touch in or out**
+
 ### Objects:
+1. User (customer)
+2. Card
+
 ### Messages:
+1. Fail to touch in and out
 
 
 ## User Story 12
+In order to be charged the correct amount
+As a customer
+I need to have the correct fare calculated
+
 ### Nouns:
+In order to be charged the correct amount
+As a **customer**
+I need to have the correct fare calculated
+
 ### Verbs:
+In order to be charged the correct amount
+As a customer
+I need to have the **correct fare calculated**
+
 ### Objects:
+1. User (customer)
+2. Card
+
 ### Messages:
+1. Calculate correct fare
