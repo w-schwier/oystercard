@@ -3,6 +3,9 @@ require 'oystercard'
 describe Oystercard do
   subject(:card) {described_class.new}
   let(:station) {double(:station)}
+  let(:entry_station) {double :station}
+  let(:exit_station) {double :station}
+  let(:journey) { {entry_station: entry_station, exit_station: exit_station} }
 
   top_up_amount = 20
 
@@ -43,13 +46,26 @@ describe Oystercard do
 
   describe '#touch_out' do
     it 'Changes card to not in journey' do
-      expect(card.touch_out).to eq nil
+      expect(card.touch_out(station)).to eq nil
     end
 
     it 'Charges card by minimum amount at touch out' do
       card.top_up(top_up_amount)
       # card.touch_in
-      expect{card.touch_out}.to change{card.balance}.by -Oystercard::MINIMUM_BALANCE
+      expect{card.touch_out(station)}.to change{card.balance}.by -Oystercard::MINIMUM_BALANCE
+    end
+  end
+
+  describe 'Oystercard history' do
+    it 'Checks new card has empty history' do
+      expect(card.history).to eq []
+    end
+
+    it 'Checks the card history of the included journeys' do
+      card.top_up(top_up_amount)
+      card.touch_in(entry_station)
+      card.touch_out(exit_station)
+      expect(card.history).to eq [journey]
     end
   end
 end
