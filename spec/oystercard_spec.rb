@@ -31,8 +31,8 @@ describe Oystercard do
 
   describe "#deduct" do
     it "Card deducts amount" do
-      amount = 20
-      expect{card.deduct(amount)}.to change{card.balance}.by -amount
+      card.top_up(40)
+      expect{card.deduct(20)}.to change{card.balance}.by -20
     end
   end
 end
