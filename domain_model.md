@@ -161,11 +161,28 @@ When my **journey is complete**, I need the **correct amount deducted** from my 
 1. Complete journey
 2. Correct amount deducted
 
+
 ## User Story 8
+In order to pay for my journey
+As a customer
+I need to know where I've travelled from
+
 ### Nouns:
+In order to pay for my journey
+As a **customer**
+I need to know where I've travelled from
+
 ### Verbs:
+In order to pay for my journey
+As a customer
+I need to know **where I've travelled from**
+
 ### Objects:
+1. User (Customer)
+2. Card
+
 ### Messages:
+1. Where I've travelled from
 
 
 ## User Story 9

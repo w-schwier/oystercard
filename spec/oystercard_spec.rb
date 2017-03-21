@@ -2,6 +2,7 @@ require 'oystercard'
 
 describe Oystercard do
   subject(:card) {described_class.new}
+  let(:station) {double(:station)}
 
   top_up_amount = 20
 
@@ -31,36 +32,26 @@ describe Oystercard do
     end
   end
 
-  describe "#deduct" do
-=begin
-    it "Card deducts amount" do
-      card.top_up(top_up_amount)
-      expect{card.deduct(top_up_amount)}.to change{card.balance}.by -top_up_amount
-    end
-=end
-  end
-
-  describe '#in_journey?' do
-    it 'Checks if card is in journey' do
-      expect(card.in_journey?).to eq false
-    end
-  end
-
   describe '#touch_in' do
     it 'Changes card to in journey' do
       card.top_up(top_up_amount)
-      expect(card.touch_in).to eq card.in_journey?
+      expect(card.touch_in(station)).to eq station
     end
 
     it "Can't touch in if balance < £1" do
-      expect{card.touch_in}.to raise_error "Can't touch in: Balance too low"
+      expect{card.touch_in(station)}.to raise_error "Can't touch in: Balance too low"
+    end
+
+    it "Remembers entry station" do
+      card.top_up(top_up_amount)
+      expect(card.touch_in(station)).to eq card.entry_station
     end
 
   end
 
   describe '#touch_out' do
     it 'Changes card to not in journey' do
-      expect(card.touch_out).to eq card.in_journey?
+      expect(card.touch_out).to eq nil
     end
 
     it 'Charges card by minimum amount on touch out' do
