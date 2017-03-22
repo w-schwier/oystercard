@@ -37,6 +37,11 @@ describe Oystercard do
       expect{card.touch_in(station)}.to raise_error "Can't touch in: Balance too low"
     end
 
+    it 'sets the current journey variable to a new instance of the journey class' do
+      card.top_up 10
+      expect(card.touch_in(station)).to eq card.current_journey
+    end
+
   end
 
   describe '#touch_out' do
