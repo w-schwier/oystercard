@@ -24,6 +24,21 @@ describe Journey do
     it 'sets entry station variable to station when touched in' do
       expect(journey.entry_station).to eq station
     end
-  end
 
+    it 'returns a penalty fare if no exit station given' do
+      expect(journey.fare).to eq Journey::PENALTY_FARE
+    end
+
+    context 'Given an exit station' do
+      let(:other_station) {double :other_station}
+      before do
+        journey.finish(other_station)
+      end
+
+      it "calculates a fare" do
+        expect(journey.fare).to eq 1
+      end
+
+    end
+  end
 end
