@@ -12,6 +12,7 @@ class Oystercard
     @limit = limit
     @entry_station = nil
     @history = []
+    @current_journey = Journey.new
   end
 
   def top_up(amount)
@@ -21,9 +22,8 @@ class Oystercard
 
   def touch_in(station)
     fail "Can't touch in: Balance too low" if (self.balance < MINIMUM_BALANCE)
-    #deduct(6) if @current_journey.unfinished?
-    #@current_journey = Journey.new(station)
-    self.entry_station = station
+    deduct(current_journey.fare) if !(current_journey.entry_station.nil?)
+    @current_journey = Journey.new(entry_station: station)
   end
 
   def touch_out(station)

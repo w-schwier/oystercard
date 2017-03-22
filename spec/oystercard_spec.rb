@@ -36,6 +36,7 @@ describe Oystercard do
     it "Can't touch in if balance < £1" do
       expect{card.touch_in(station)}.to raise_error "Can't touch in: Balance too low"
     end
+
   end
 
   describe '#touch_out' do
