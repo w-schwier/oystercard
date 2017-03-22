@@ -39,6 +39,9 @@ describe Journey do
         expect(journey.fare).to eq 1
       end
 
+      it 'knows if a journey is complete' do
+        expect(journey).to be_complete
+      end
     end
   end
 end

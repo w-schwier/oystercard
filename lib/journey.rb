@@ -1,6 +1,6 @@
 class Journey
 
-  attr_reader :entry_station
+  attr_reader :entry_station, :exit_station
 
   PENALTY_FARE = 6
 
@@ -9,19 +9,20 @@ class Journey
   end
 
   def complete?
-    false
+    (self.entry_station.nil? || self.exit_station.nil?) ? false : true
   end
 
   def fare
-    PENALTY_FARE
+    complete? ? 1 : PENALTY_FARE
   end
 
   def finish(station)
+    self.exit_station = station
     self
   end
 
 
   private
-  attr_writer :entry_station
+  attr_writer :entry_station, :exit_station
 
 end
