@@ -55,17 +55,4 @@ describe Oystercard do
       expect{card.touch_out(station)}.to change{card.balance}.by -Oystercard::MINIMUM_BALANCE
     end
   end
-
-  describe 'Oystercard history' do
-    it 'Checks new card has empty history' do
-      expect(card.history).to eq []
-    end
-
-    it 'Checks the history of the cards journeys' do
-      card.top_up(top_up_amount)
-      card.touch_in(entry_station)
-      card.touch_out(exit_station)
-      expect(card.history).to eq [journey]
-    end
-  end
 end
