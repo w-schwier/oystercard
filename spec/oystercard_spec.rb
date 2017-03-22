@@ -42,6 +42,12 @@ describe Oystercard do
       expect(card.touch_in(station)).to eq card.current_journey
     end
 
+    it "checks two tap ins in a row charges penalty fare" do
+      card.top_up(20)
+      card.touch_in(station)
+      expect{card.touch_in(station)}.to change{card.balance}.by -Journey::PENALTY_FARE
+    end
+
   end
 
   describe '#touch_out' do
