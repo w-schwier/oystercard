@@ -19,8 +19,8 @@ describe Journey do
     expect(subject.fare).to eq Journey::PENALTY_FARE
   end
 
-  # it 'Finishes journey' do
-  #   expect(journey.finish(station)).to eq station
-  # end
+  it 'Finishes journey' do
+    expect(journey.finish(station)).to eq journey
+  end
 
 end
