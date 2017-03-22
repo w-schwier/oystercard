@@ -1,5 +1,6 @@
 require_relative 'station'
 require_relative 'journey'
+require_relative 'journeylog'
 
 class Oystercard
   attr_reader :balance, :limit, :entry_station, :history, :current_journey
@@ -10,7 +11,7 @@ class Oystercard
   def initialize(limit = DEFAULT_LIMIT)
     @balance = 0
     @limit = limit
-    @history = []
+    @history = JourneyLog.new
     @current_journey = Journey.new
   end
 
@@ -22,14 +23,13 @@ class Oystercard
   def touch_in(station)
     fail "Can't touch in: Balance too low" if (self.balance < MINIMUM_BALANCE)
     deduct(current_journey.fare) if !(current_journey.entry_station.nil?)
-    self.history.push(current_journey) if current_journey.exit_station.nil?
     self.current_journey = Journey.new(entry_station: station)
   end
 
   def touch_out(station)
     current_journey.finish(station)
     deduct(current_journey.fare)
-    self.history.push(current_journey)
+    history.log.push(current_journey)
     self.current_journey = Journey.new
   end
 
