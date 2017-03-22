@@ -55,6 +55,10 @@ describe Oystercard do
       expect(card.touch_out(station)).to eq nil
     end
 
+    it 'charges penalty fare if there was no touch_in' do
+      expect{card.touch_out(station)}.to change{card.balance}.by -Journey::PENALTY_FARE
+    end
+
     it 'Charges card by minimum amount at touch out' do
       card.top_up(top_up_amount)
       # card.touch_in
