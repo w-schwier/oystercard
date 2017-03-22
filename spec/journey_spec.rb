@@ -1,26 +1,29 @@
 require 'journey'
 
-# subject(:journey) {described_class.new}
+# journey(:journey) {described_class.new}
 
 describe Journey do
 
-  subject(:journey) {described_class.new("Tooting")}
-  let(:station) {double :station}
-
-  it 'sets entry station variable to station when touched in' do
-    expect(journey.entry_station).to eq "Tooting"
-  end
+  let(:station) {double :station, zone: 1}
+  subject(:journey) {described_class.new(entry_station: station)}
 
   it "knows if a journey is not complete" do
-    expect(subject).not_to be_complete
+    expect(journey).not_to be_complete
   end
 
   it 'has a penalty fare by default' do
-    expect(subject.fare).to eq Journey::PENALTY_FARE
+    expect(journey.fare).to eq Journey::PENALTY_FARE
   end
 
   it 'Finishes journey' do
     expect(journey.finish(station)).to eq journey
+  end
+
+  context 'given an entry station' do
+
+    it 'sets entry station variable to station when touched in' do
+      expect(journey.entry_station).to eq station
+    end
   end
 
 end

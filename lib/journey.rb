@@ -16,6 +16,10 @@ class Journey
     PENALTY_FARE
   end
 
+  def finish(station)
+    self
+  end
+
 
   private
   attr_writer :entry_station
