@@ -61,7 +61,7 @@ describe Oystercard do
       expect(card.history).to eq []
     end
 
-    it 'Checks the card history of the included journeys' do
+    it 'Checks the history of the cards journeys' do
       card.top_up(top_up_amount)
       card.touch_in(entry_station)
       card.touch_out(exit_station)
