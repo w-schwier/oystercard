@@ -6,6 +6,10 @@ class Journey
     @entry_station = entry_station
   end
 
+  def complete?
+    false
+  end
+
 
   private
   attr_writer :entry_station
